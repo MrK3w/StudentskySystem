@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model List<SchoolSystem.WebApplication.Entities.StudentEntity>
+
+<button class="btn btn-primary"><a href="Home/Create">Create student</a></button>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                Login
+            </th>
+            <th>
+                Password
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(x => student.Login)
+                </td>
+                <td>
+                    @Html.DisplayFor(x => student.Password)
+                </td>
+                <td>
+                    <a href="Home/Delete?studentId=@student.Id">
+                        <i class="fas fa-trash-restore-alt"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

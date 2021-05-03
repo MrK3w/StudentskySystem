@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model SchoolSystem.WebApplication.Entities.StudentEntity
+
+@using (Html.BeginForm("Create", "Home", FormMethod.Post))
+{
+    @Html.TextBoxFor(m => m.Login)
+    @Html.TextBoxFor(m => m.FirstName)
+    @Html.TextBoxFor(m => m.LastName)
+    @Html.TextBoxFor(model => model.Password)
+    
+
+    <input type="submit" value="Submit strongly type synchronous form" />
+}

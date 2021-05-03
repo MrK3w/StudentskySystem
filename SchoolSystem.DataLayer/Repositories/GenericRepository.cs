@@ -55,23 +55,11 @@ namespace SchoolSystem.DataLayer.Repositories
 
         public async Task RemoveAsync(Expression<Func<T, bool>> predicateExpression)
         {
-            Exception exception = null;
             await Task.Run(() =>
                 {
-                    try
-                    {
-                        Context.Where(predicateExpression).Delete();
-                    }
-                    catch (Exception ex)
-                    {
-                        exception = ex;
-                    }
+                    Context.Where(predicateExpression).Delete();
                 });
-            if (exception != null)
-            {
-                throw new Exception(exception.Message);
             }
-        }
         public async Task UpdateAsync(T entity, Expression<Func<T, bool>> predicateExpression)
         {
             Exception exception = null;
