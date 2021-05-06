@@ -4,7 +4,7 @@
 
 @model List<SchoolSystem.WebApplication.Entities.StudentEntity>
 
-<button class="btn btn-primary"><a href="Home/Create">Create student</a></button>
+<button class="btn btn-danger"><a href="Home/Create">Create student</a></button>
 
 <table class="table table-hover">
     <thead>
@@ -17,6 +17,9 @@
             </th>
             <th>
                 Action
+            </th>
+            <th>
+                 Edit
             </th>
         </tr>
     </thead>
@@ -35,6 +38,9 @@
                         <i class="fas fa-trash-restore-alt"></i>
                     </a>
                 </td>
+                <td>
+                    <a href="@Url.Action("Edit", "Home", new { id = student.Id })"><i class="fas fa-user-edit"></i></a>
+                    </td>
             </tr>
         }
     </tbody>

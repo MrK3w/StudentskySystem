@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Subjects";
+}
+
+@model List<SchoolSystem.WebApplication.Entities.SubjectEntity>
+
+<button class="btn btn-primary"><a href="Subject/Create">Create subject</a></button>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                credits
+            </th>
+             <th>
+                Teachers full name
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var subject in Model)
+        {
+            <tr>
+                <td>
+                    @subject.Name
+                </td>
+                <td>
+                    @subject.Credits
+                </td>
+                <td>
+                    @subject.HeadTeacher.FirstName @subject.HeadTeacher.LastName
+                </td>
+                <td>
+                    <a href="Subject/Delete?subjectId=@subject.Id">
+                        <i class="fas fa-trash-restore-alt"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

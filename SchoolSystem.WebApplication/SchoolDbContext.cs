@@ -10,5 +10,9 @@ namespace SchoolSystem.WebApplication
         }
         
         public virtual DbSet<StudentEntity> Students { get; set; }
+        
+        public virtual DbSet<TeacherEntity> Teachers { get; set; }
+        
+        public virtual DbSet<SubjectEntity> Subjects { get; set; }
     }
 }

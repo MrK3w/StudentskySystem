@@ -4,7 +4,7 @@
 
 @model SchoolSystem.WebApplication.Entities.StudentEntity
 
-@using (Html.BeginForm("Create", "Home", FormMethod.Post))
+@using (Html.BeginForm("Edit", "Home", FormMethod.Post))
 {
     @Html.TextBoxFor(m => m.Login)
     @Html.TextBoxFor(m => m.FirstName)
@@ -12,5 +12,5 @@
     @Html.TextBoxFor(model => model.Password)
     
 
-    <input type="submit" value="CREATE" />
+    <input type="submit" value="Create" />
 }

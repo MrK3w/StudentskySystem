@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using SchoolSystem.WebApplication.Entities;
 using SchoolSystem.WebApplication.Models;
@@ -50,6 +51,22 @@ namespace SchoolSystem.WebApplication.Controllers
             _dbContext.SaveChanges();
             return RedirectToAction("Index");
         }
+        
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var student = _dbContext.Students.Find(id);
+            return View("Edit", student);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(StudentEntity student)
+        {
+            _dbContext.Entry(student).State = EntityState.Modified;
+            _dbContext.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
 
 
         public IActionResult Privacy()
