@@ -21,6 +21,9 @@
             <th>
                 Action
             </th>
+            <th>
+                Edit
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -40,6 +43,9 @@
                     <a href="Subject/Delete?subjectId=@subject.Id">
                         <i class="fas fa-trash-restore-alt"></i>
                     </a>
+                </td>
+                <td>
+                <a href="@Url.Action("Edit", "Subject", new { id = subject.Id })"><i class="fas fa-user-edit"></i></a>
                 </td>
             </tr>
         }

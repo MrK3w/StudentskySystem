@@ -4,7 +4,7 @@
 @model SchoolSystem.WebApplication.Entities.SubjectEntity
 
 
-@using (Html.BeginForm("Create", "Subject", FormMethod.Post))
+@using (Html.BeginForm("Edit", "Subject", FormMethod.Post))
 {
     <div class="row">
         @Html.LabelFor(m => m.Name) @Html.TextBoxFor(m => m.Name)
@@ -16,16 +16,16 @@
         
         <div class="col-9">
             @Html.EditorFor(model => model.Credits, new
-                    {
-                        htmlAttributes = new
-                        {
-                            type = "number",
-                            min = "1",
-                            max = "10",
-                            @class = "form-control",
-                            @id = "amount",
-                        }
-                    })
+            {
+                htmlAttributes = new
+                {
+                    type = "number",
+                    min = "1",
+                    max = "10",
+                    @class = "form-control",
+                    @id = "amount",
+                }
+            })
         </div>
         
 
