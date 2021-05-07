@@ -19,9 +19,10 @@ namespace SchoolSystem.WebApplication.Entities
         public int HeadTeacherId { get; set; }
         
         [ForeignKey("HeadTeacherId")]
-        public TeacherEntity HeadTeacher { get; set; }
+        public UserEntity HeadTeacher { get; set; }
 
         [Column(ColumnNames.SubjectTable.CREDITS)]
+        [RegularExpression("([1-9][0-9]*)", ErrorMessage = "Enter only numeric number")]
         public int Credits { get; set; }
 
         public override string ToString()

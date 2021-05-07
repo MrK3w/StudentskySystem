@@ -2,24 +2,16 @@
 {
     public static class ColumnNames
     {
-        public static class StudentTable
+        public static class UserTable
         {
-            public const string ID = "student_id";
+            public const string ID = "user_id";
             public const string FIRST_NAME = "first_name";
             public const string LAST_NAME = "last_name";
             public const string LOGIN = "login";
             public const string PASSWORD = "password";
+            public const string TYPE = "type_of_user";
         }
-
-        public static class TeacherTable
-        {
-            public const string ID = "teacher_id";
-            public const string FIRST_NAME = "first_name";
-            public const string LAST_NAME = "last_name";
-            public const string LOGIN = "login";
-            public const string PASSWORD = "password";
-            public const string PHONE_NUMBER = "phone_number";
-        }
+        
 
         public static class SubjectTable
         {
@@ -36,7 +28,6 @@
             public const string END_TIME = "end_time";
             public const string SUBJECT_ID = "subject_id";
             public const string DAY_OF_WEEK_ID = "day_of_week_id";
-            public const string TEACHER_ID = "teacher_id";
         }
 
         public static class StudentsLessonTable

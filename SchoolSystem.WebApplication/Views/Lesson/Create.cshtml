@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Subject";
+}
+@model SchoolSystem.WebApplication.Entities.LessonEntity
+
+<script type="text/javascript">
+ $(document).ready(function () {
+    $("#date").datetimepicker({
+         dateFormat: 'dd-mm-yy', timeFormat: 'hh:mm:ss' 
+    });
+ });
+ </script>
+
+@using (Html.BeginForm("Create", "Lesson", FormMethod.Post))
+{
+    <div class="row">
+        @Html.LabelFor(m => m.Day) @Html.TextBoxFor(m => m.Day)
+    </div>
+    <div class="row">
+        <div class="col-2"> @Html.LabelFor(m => m.StartTime)</div>
+        <div class="col-10"> @Html.DropDownListFor(m => m.StartTime, new SelectList(@ViewBag.StartTime, "Id", "Name"), "Subjects", new {@class = "form-control"}) </div>
+       
+    </div>
+
+    <div class="row">
+        <div class="col-2"> @Html.LabelFor(m => m.Subject)</div>
+        <div class="col-10"> @Html.DropDownListFor(m => m.Subject, new SelectList(@ViewBag.Subjects, "Id", "Name"), "Subjects", new {@class = "form-control"}) </div>
+       
+    </div>
+    <input type="submit" value="SUBMIT" />
+}

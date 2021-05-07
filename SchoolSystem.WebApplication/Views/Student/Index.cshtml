@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model List<SchoolSystem.WebApplication.Entities.UserEntity>
+
+<button class="btn btn-primary"><a href="Student/Create" style="color:black">Create student</a></button>
+
+<table id="myTable" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                Login
+            </th>
+            <th>
+                Password
+            </th>
+            <th>
+                Action
+            </th>
+            <th>
+                 Edit
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(x => student.Login)
+                </td>
+                <td>
+                    @Html.DisplayFor(x => student.Password)
+                </td>
+                <td>
+                    <a href="Student/Delete?studentId=@student.Id">
+                        <i class="fas fa-trash-restore-alt"></i>
+                    </a>
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "Student", new { id = student.Id })"><i class="fas fa-user-edit"></i></a>
+                    </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model List<SchoolSystem.WebApplication.Entities.LessonEntity>
+
+<button class="btn btn-primary"><a href="Lesson/Create" style="color:black">Create lesson</a></button>
+
+<table id="myTable" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                Day
+            </th>
+            <th>
+                Start
+            </th>
+            <th>
+                End
+            </th>
+            <th>
+                Subject
+            </th>
+            <th>
+                Action
+            </th>
+            <th>
+                 Edit
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var lesson in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(x => lesson.Day)
+                </td>
+                <td>
+                    @Html.DisplayFor(x => lesson.StartTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(x => lesson.EndTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(x => lesson.Subject.Name)
+                </td>
+                <td>
+                    <a href="Lesson/Delete?lessonId=@lesson.Id">
+                        <i class="fas fa-trash-restore-alt"></i>
+                    </a>
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "Lesson", new { id = lesson.Id })"><i class="fas fa-user-edit"></i></a>
+                    </td>
+            </tr>
+        }
+    </tbody>
+</table>

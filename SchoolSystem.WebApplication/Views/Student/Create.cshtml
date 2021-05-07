@@ -2,9 +2,9 @@
     ViewData["Title"] = "Home Page";
 }
 
-@model SchoolSystem.WebApplication.Entities.StudentEntity
+@model SchoolSystem.WebApplication.Entities.UserEntity
 
-@using (Html.BeginForm("Edit", "Home", FormMethod.Post))
+@using (Html.BeginForm("Create", "Student", FormMethod.Post))
 {
     @Html.TextBoxFor(m => m.Login)
     @Html.TextBoxFor(m => m.FirstName)
@@ -12,5 +12,5 @@
     @Html.TextBoxFor(model => model.Password)
     
 
-    <input type="submit" value="Create" />
+    <input type="submit" value="CREATE" />
 }
