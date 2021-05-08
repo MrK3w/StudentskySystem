@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -43,14 +40,20 @@ namespace SchoolSystem.WebApplication.Controllers
         {
             return View("Create");
         }
-        
+
         [HttpPost]
         public IActionResult Create(UserEntity userEntity)
         {
-            _dbContext.Users.Add(userEntity);
-            _dbContext.SaveChanges();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _dbContext.Users.Add(userEntity);
+                _dbContext.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return Create();
         }
+    
         
         [HttpGet]
         public ActionResult Edit(int id)
@@ -62,6 +65,7 @@ namespace SchoolSystem.WebApplication.Controllers
         [HttpPost]
         public ActionResult Edit(UserEntity user)
         {
+            if (!ModelState.IsValid) return Edit(user.Id);
             _dbContext.Entry(user).State = EntityState.Modified;
             _dbContext.SaveChanges();
             return RedirectToAction("Index");

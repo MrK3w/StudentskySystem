@@ -6,10 +6,28 @@
 
 @using (Html.BeginForm("Edit", "Student", FormMethod.Post))
 {
-    @Html.TextBoxFor(m => m.Login)
-    @Html.TextBoxFor(m => m.FirstName)
-    @Html.TextBoxFor(m => m.LastName)
-    @Html.TextBoxFor(model => model.Password)
+    <div>
+        @Html.LabelFor(m => m.Login)
+        @Html.TextBoxFor(m => m.Login)
+        @Html.ValidationMessageFor(m => m.Login)
+    </div>
+    
+    <div>
+        @Html.LabelFor(m => m.FirstName)
+        @Html.TextBoxFor(m => m.FirstName)
+        @Html.ValidationMessageFor(m => m.FirstName)
+    </div>
+    
+    <div>
+        @Html.LabelFor(m => m.LastName)
+        @Html.TextBoxFor(m => m.LastName)
+        @Html.ValidationMessageFor(m => m.LastName)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Password)
+        @Html.TextBoxFor(m => m.Password)
+        @Html.ValidationMessageFor(m => m.Password)
+    </div>
     
 
     <input type="submit" value="Create" />

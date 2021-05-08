@@ -29,6 +29,9 @@ namespace SchoolSystem.WebApplication
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
             
+            services.AddDistributedMemoryCache();
+            services.AddSession();
+            
             services.AddControllersWithViews();
         }
 
@@ -50,7 +53,7 @@ namespace SchoolSystem.WebApplication
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseSession();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

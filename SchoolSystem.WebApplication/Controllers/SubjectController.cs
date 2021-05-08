@@ -44,6 +44,7 @@ namespace SchoolSystem.WebApplication.Controllers
         [HttpGet]   
         public IActionResult Create()
         {
+            if (!ModelState.IsValid) return Create();
             var teachers = _dbContext.Users.Where(x => x.TypeOfUser=="teacher").ToList();
             ViewBag.Teachers = teachers;
             return View("Create");
@@ -69,6 +70,7 @@ namespace SchoolSystem.WebApplication.Controllers
         [HttpPost]
         public ActionResult Edit(SubjectEntity subject)
         {
+            if (!ModelState.IsValid) return Edit(subject.Id);
             _dbContext.Entry(subject).State = EntityState.Modified;
             _dbContext.SaveChanges();
             return RedirectToAction("Index");

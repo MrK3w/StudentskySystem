@@ -10,10 +10,10 @@
         @Html.LabelFor(m => m.Day) @Html.TextBoxFor(m => m.Day)
     </div>
     <div class="row">
-        @Html.LabelFor(m => m.StartTime) @Html.TextBoxFor(m => m.StartTime)
+        @Html.LabelFor(m => m.StartTime)   @Html.EditorFor(m => m.StartTime)
     </div>
     <div class="row">
-        @Html.LabelFor(m => m.EndTime) @Html.TextBoxFor(m => m.EndTime)
+        @Html.LabelFor(m => m.EndTime) @Html.EditorFor(m => m.EndTime)
     </div>
     <div class="row">
         @Html.LabelFor(m => m.Subject) @Html.TextBoxFor(m => m.Subject)

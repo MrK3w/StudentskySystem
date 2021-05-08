@@ -50,6 +50,7 @@ namespace SchoolSystem.WebApplication.Controllers
         [HttpPost]
         public IActionResult Create(LessonEntity lessonEntity)
         {
+            if (!ModelState.IsValid) return Create();
             _dbContext.Lessons.Add(lessonEntity);
             _dbContext.SaveChanges();
             return RedirectToAction("Index");
@@ -65,12 +66,11 @@ namespace SchoolSystem.WebApplication.Controllers
         [HttpPost]
         public ActionResult Edit(LessonEntity lesson)
         {
+            if (!ModelState.IsValid) return Edit(lesson.Id);
             _dbContext.Entry(lesson).State = EntityState.Modified;
             _dbContext.SaveChanges();
             return RedirectToAction("Index");
         }
-
-
 
         public IActionResult Privacy()
         {

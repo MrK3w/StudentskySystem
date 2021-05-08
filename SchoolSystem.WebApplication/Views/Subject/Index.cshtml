@@ -4,7 +4,7 @@
 
 @model List<SchoolSystem.WebApplication.Entities.SubjectEntity>
 
-<button class="btn btn-primary"><a href="Subject/Create">Create subject</a></button>
+<button class="btn btn-primary"><a href="Subject/Create" style="color: black">Create subject</a></button>
 
 <table id="myTable" class="table table-bordered table-hover">
     <thead>
@@ -40,7 +40,7 @@
                     @subject.HeadTeacher.FirstName @subject.HeadTeacher.LastName
                 </td>
                 <td>
-                    <a href="Subject/Delete?subjectId=@subject.Id">
+                    <a href="Delete?subjectId=@subject.Id">
                         <i class="fas fa-trash-restore-alt"></i>
                     </a>
                 </td>
