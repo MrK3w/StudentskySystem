@@ -7,7 +7,24 @@
 @using (Html.BeginForm("Edit", "Subject", FormMethod.Post))
 {
     <div class="row">
-        @Html.LabelFor(m => m.Name) @Html.TextBoxFor(m => m.Name)
+        <div class="col-3">
+            @Html.LabelFor(m => m.Name)
+        </div>
+        
+        <div class="col-9">
+
+            @Html.EditorFor(model => model.Name, new
+            {
+                htmlAttributes = new
+                {
+                    type = "text",
+                    @class = "form-control",
+                    @id = "name",
+                }
+            })
+        </div>
+        
+
     </div>
     <div class="row">
         <div class="col-3">
@@ -30,7 +47,6 @@
         
 
     </div>
-    <div id="slider-range-min" class="mt-3 mb-3"></div>
     <div class="row">
         <div class="col-2"> @Html.LabelFor(m => m.HeadTeacher)</div>
         <div class="col-10"> @Html.DropDownListFor(m => m.HeadTeacherId, new SelectList(@ViewBag.Teachers, "Id", "FirstName"), "Teachers", new {@class = "form-control"}) </div>
@@ -38,5 +54,5 @@
     </div>
     
 
-    <input type="submit" value="Submit strongly type synchronous form" />
+    <input type="submit" value="Submit" />
 }

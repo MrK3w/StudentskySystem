@@ -1,15 +1,9 @@
 ﻿@{
     ViewData["Title"] = "Subject";
 }
+
 @model SchoolSystem.WebApplication.Entities.LessonEntity
 
-<script type="text/javascript">
- $(document).ready(function () {
-    $("#date").datetimepicker({
-         dateFormat: 'dd-mm-yy', timeFormat: 'hh:mm:ss' 
-    });
- });
- </script>
 
 @using (Html.BeginForm("Create", "Lesson", FormMethod.Post))
 {
@@ -18,13 +12,24 @@
     </div>
     <div class="row">
         <div class="col-2"> @Html.LabelFor(m => m.StartTime)</div>
-        <div class="col-10"> @Html.DropDownListFor(m => m.StartTime, new SelectList(@ViewBag.StartTime, "Id", "Name"), "Subjects", new {@class = "form-control"}) </div>
+        <div class="col-10">
+@Html.TextBoxFor( model => model.StartTime, "{0:HH:mm:ss}", new { 
+       @class = "form-control timecontrol", type = "time" })
+            </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-2"> @Html.LabelFor(m => m.EndTime)</div>
+      <div class="col-10">
+     @Html.TextBoxFor( model => model.EndTime, "{0:HH:mm:ss}", new { 
+            @class = "form-control timecontrol", type = "time" })
+                 </div>
        
     </div>
 
     <div class="row">
         <div class="col-2"> @Html.LabelFor(m => m.Subject)</div>
-        <div class="col-10"> @Html.DropDownListFor(m => m.Subject, new SelectList(@ViewBag.Subjects, "Id", "Name"), "Subjects", new {@class = "form-control"}) </div>
+        <div class="col-10"> @Html.DropDownListFor(m => m.SubjectId, new SelectList(@ViewBag.Subjects, "Id", "Name"),  new {@class = "form-control"}) </div>
        
     </div>
     <input type="submit" value="SUBMIT" />

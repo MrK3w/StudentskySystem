@@ -15,6 +15,7 @@ namespace SchoolSystem.WebApplication.Controllers
     {
         private readonly SchoolDbContext _dbContext;
 
+       
         public LessonController(ILogger<LessonController> logger, SchoolDbContext dbContext)
         {
             _dbContext = dbContext;
