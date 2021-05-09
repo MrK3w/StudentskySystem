@@ -3,9 +3,10 @@
 }
 
 @model List<SchoolSystem.WebApplication.Entities.UserEntity>
-
-<button class="btn btn-primary"><a href="Student/Create" style="color:black">Create student</a></button>
-
+@if (@ViewBag.Type == "teacher")
+{
+    <button class="btn btn-primary"><a href="Student/Create" style="color:black">Create student</a></button>
+}
 <table id="myTable" class="table table-bordered table-hover">
     <thead>
         <tr>

@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Linq;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -19,7 +20,13 @@ namespace SchoolSystem.WebApplication.Controllers
 
         public IActionResult Index()
         {
+            if (HttpContext.Session.GetString("type") == null)
+            {
+                return RedirectToAction("Login","Home");
+            }
+
             var students = _dbContext.Users.Where(x => x.TypeOfUser=="student").ToList();
+            ViewBag.Type = HttpContext.Session.GetString("type");;
             return View(students);
         }
         

@@ -30,6 +30,12 @@ namespace SchoolSystem.WebApplication
             });
             
             services.AddDistributedMemoryCache();
+
+            services.AddSession(options => {
+                options.IdleTimeout = TimeSpan.FromMinutes(60);
+            });
+            
+            services.AddDistributedMemoryCache();
             services.AddSession();
             
             services.AddControllersWithViews();
@@ -55,12 +61,11 @@ namespace SchoolSystem.WebApplication
             app.UseRouting();
             app.UseSession();
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Login}/{id?}");
             });
         }
     }
